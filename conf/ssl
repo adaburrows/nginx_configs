@@ -1,0 +1,4 @@
+  listen              443 ssl;
+  ssl_prefer_server_ciphers on;
+  ssl_ciphers HIGH:!ADH:!MD4;
+  ssl_protocols TLSv1 SSLv3;

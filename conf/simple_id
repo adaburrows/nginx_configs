@@ -1,0 +1,6 @@
+  location /openid/ {
+    try_files $uri @simpleid;
+  }
+  location @simpleid {
+    rewrite ^/(.*) /openid/index.php?q=$1&$args last;
+  }

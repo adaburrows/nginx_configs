@@ -1,0 +1,30 @@
+  index index.html index.php;
+
+  location / {
+    try_files $uri $uri/ @wp;
+  }
+
+  location @wp {
+    # Match only one section
+    rewrite ^(/[^/]+)?(/wp-.*) $2 last;
+    rewrite ^(/[^/]+)?(/.*\.php) $2 last;
+ 
+    # Send everything else to index.php (permalinks)
+    rewrite ^/(.*)$ /index.php?q=$1 last;
+  }
+
+  location = /favicon.ico {
+    log_not_found off;
+    access_log off;
+  }
+ 
+  location = /robots.txt {
+    allow all;
+    log_not_found off;
+    access_log off;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+    expires max;
+    log_not_found off;
+  }

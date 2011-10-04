@@ -1,0 +1,8 @@
+  location / {
+    try_files $uri @dynamis;
+  }
+  location @dynamis {
+    rewrite ^/(.*)\.(.*) /index.php?route=$1&ext=$2&$args last;
+    rewrite ^/(.*) /index.php?route=$1&$args last;
+    rewrite ^ /index.php last;
+  }

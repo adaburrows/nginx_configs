@@ -1,0 +1,11 @@
+ # Server Certs and Keys
+  ssl_certificate     ssl.d/cert.pem;
+  ssl_certificate_key ssl.d/key.pem;
+
+  # Client Cert Authentication
+  #ssl_client_certificate ssl.d/client_cert.pem;
+  #ssl_verify_client optional;
+  #ssl_verify_depth 1;
+  #ssl_dhparam ssl.d/dhparam.pem;
+  # Certificate Revocation List
+  ssl_crl ssl.d/crl.pem;
